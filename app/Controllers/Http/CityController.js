@@ -35,6 +35,7 @@ class CityController {
    * @param {View} ctx.view
    */
   async create ({ request, response, view }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -46,6 +47,7 @@ class CityController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -57,7 +59,9 @@ class CityController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show ({ params, transform }) {
+    const item = await City.query().where('city_code', params.id).first()
+    return transform.item(item, 'CityTransformer')
   }
 
   /**
@@ -70,6 +74,7 @@ class CityController {
    * @param {View} ctx.view
    */
   async edit ({ params, request, response, view }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -81,6 +86,7 @@ class CityController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -92,6 +98,7 @@ class CityController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    return response.json({"message": "feature WIP"})
   }
 }
 
