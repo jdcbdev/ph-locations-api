@@ -22,7 +22,7 @@ class RegionController {
    */
   async index ({ request, response, view }) {
     const current_page = request.input('page', 1)
-    items = await Region.query().orderBy('description', 'asc').paginate(current_page)
+    const items = await Region.query().orderBy('description', 'asc').paginate(current_page)
 
     return response.json(items)
   }
@@ -37,6 +37,7 @@ class RegionController {
    * @param {View} ctx.view
    */
   async create ({ request, response, view }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -48,6 +49,7 @@ class RegionController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -60,6 +62,8 @@ class RegionController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
+    const region = await Region.where('region_code', params.region_code).first()
+    return response.json(region)
   }
 
   /**
@@ -72,6 +76,7 @@ class RegionController {
    * @param {View} ctx.view
    */
   async edit ({ params, request, response, view }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -83,6 +88,7 @@ class RegionController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -94,6 +100,7 @@ class RegionController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    return response.json({"message": "feature WIP"})
   }
 }
 

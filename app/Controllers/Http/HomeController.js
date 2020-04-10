@@ -5,7 +5,7 @@ const {build_api_url} = use('App/Helpers')
 class HomeController {
     async index ({ request, response, view }) {
         let message = {
-            api_name: "PH Location API",
+            api_name: "Philippines Location API",
             api_version: "v1.0.1",
             resources: [
                 {"region":  build_api_url(request,"regions") },
