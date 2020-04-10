@@ -22,4 +22,4 @@ class BarangaysSchema extends Schema {
   }
 }
 
-module.exports = BaranggaysSchema
+module.exports = BarangaysSchema
