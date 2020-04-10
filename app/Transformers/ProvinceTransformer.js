@@ -14,7 +14,8 @@ class ProvinceTransformer extends BumblebeeTransformer {
    */
   transform (model) {
     return {
-     // add your transformation object here
+     id: model.province_code,
+     name: model.description
     }
   }
 }

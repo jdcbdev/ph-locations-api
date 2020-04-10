@@ -4,6 +4,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const Province = use('App/Models/Province')
+
 /**
  * Resourceful controller for interacting with provinces
  */
@@ -17,7 +19,10 @@ class ProvinceController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
+  async index ({ request, transform }) {
+    const current_page = request.input('page', 1)
+    const items = await Province.query().orderBy('description', 'asc').paginate(current_page)
+    return transform.collection(items, 'ProvinceTransformer')
   }
 
   /**
@@ -30,6 +35,7 @@ class ProvinceController {
    * @param {View} ctx.view
    */
   async create ({ request, response, view }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -41,6 +47,7 @@ class ProvinceController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -52,7 +59,9 @@ class ProvinceController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show ({ params, transform }) {
+    const item = await Region.query().where('region_code', params.id).first()
+    return transform.item(item, 'RegionTransformer')
   }
 
   /**
@@ -65,6 +74,7 @@ class ProvinceController {
    * @param {View} ctx.view
    */
   async edit ({ params, request, response, view }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -76,6 +86,7 @@ class ProvinceController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
+    return response.json({"message": "feature WIP"})
   }
 
   /**
@@ -87,6 +98,7 @@ class ProvinceController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+    return response.json({"message": "feature WIP"})
   }
 }
 

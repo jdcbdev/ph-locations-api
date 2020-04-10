@@ -13,10 +13,11 @@ class RegionTransformer extends BumblebeeTransformer {
   /**
    * This method is used to transform the data.
    */
-  transform (model) {
+  transform (model, context) {
     return {
      id: model.region_code,
-     name: model.description
+     name: model.description,
+     href: build_api_url(context.request, 'regions/' +model.region_code)
     }
   }
 }

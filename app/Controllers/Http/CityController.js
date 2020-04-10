@@ -4,6 +4,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const City = use('App/Models/City')
+
 /**
  * Resourceful controller for interacting with cities
  */
@@ -17,7 +19,10 @@ class CityController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
+  async index ({ request, transform }) {
+    const current_page = request.input('page', 1)
+    const items = await City.query().orderBy('description', 'asc').paginate(current_page)
+    return transform.collection(items, 'CityTransformer')
   }
 
   /**
