@@ -28,3 +28,8 @@ seed
 ```
 adonis seed
 ```
+
+## Credits
+
+* [clavearnel/philippines-region-province-citymun-brgy](https://github.com/clavearnel/philippines-region-province-citymun-brgy) for JSON data
+* [National Statistical Coordination Board](http://www.nscb.gov.ph/)
