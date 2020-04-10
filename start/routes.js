@@ -17,3 +17,8 @@
 const Route = use('Route')
 
 Route.get('/', 'HomeController.index')
+
+Route.resource('/v1/regions', 'RegionController')
+Route.resource('/v1/provinces', 'ProvinceController')
+Route.resource('/v1/cities', 'CityController')
+Route.resource('/v1/barangays', 'BarangayController')
