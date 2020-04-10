@@ -20,11 +20,10 @@ class RegionController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
+  async index ({ request, transform }) {
     const current_page = request.input('page', 1)
     const items = await Region.query().orderBy('description', 'asc').paginate(current_page)
-
-    return response.json(items)
+    return transform.collection(items, 'RegionTransformer')
   }
 
   /**
@@ -61,9 +60,9 @@ class RegionController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
-    const region = await Region.where('region_code', params.region_code).first()
-    return response.json(region)
+  async show ({ params, transform }) {
+    const item = await Region.query().where('region_code', params.id).first()
+    return transform.item(item, 'RegionTransformer')
   }
 
   /**

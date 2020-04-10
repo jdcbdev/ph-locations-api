@@ -1,6 +1,7 @@
 'use strict'
 
 const BumblebeeTransformer = use('Bumblebee/Transformer')
+const {build_api_url} = use('App/Helpers')
 
 /**
  * RegionTransformer class
@@ -14,7 +15,8 @@ class RegionTransformer extends BumblebeeTransformer {
    */
   transform (model) {
     return {
-     // add your transformation object here
+     id: model.region_code,
+     name: model.description
     }
   }
 }
