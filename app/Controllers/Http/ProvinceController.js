@@ -22,7 +22,7 @@ class ProvinceController {
   async index ({ request, transform }) {
     const current_page = request.input('page', 1)
     const items = await Province.query().orderBy('description', 'asc').paginate(current_page)
-    return transform.collection(items, 'ProvinceTransformer')
+    return transform.paginate(items, 'ProvinceTransformer')
   }
 
   /**

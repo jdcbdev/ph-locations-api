@@ -22,7 +22,7 @@ class BarangayController {
   async index ({ request, transform }) {
     const current_page = request.input('page', 1)
     const items = await Barangay.query().orderBy('description', 'asc').paginate(current_page)
-    return transform.collection(items, 'BarangayTransformer')
+    return transform.paginate(items, 'BarangayTransformer')
   }
 
   /**

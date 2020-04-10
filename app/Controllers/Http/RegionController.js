@@ -23,7 +23,7 @@ class RegionController {
   async index ({ request, transform }) {
     const current_page = request.input('page', 1)
     const items = await Region.query().orderBy('description', 'asc').paginate(current_page)
-    return transform.collection(items, 'RegionTransformer')
+    return transform.paginate(items, 'RegionTransformer')
   }
 
   /**
