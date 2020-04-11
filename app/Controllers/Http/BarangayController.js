@@ -19,6 +19,27 @@ class BarangayController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    * @param {View} ctx.view
+   * @swagger
+   * /v1/barangays:
+   *   get:
+   *     tags:
+   *       - region
+   *     summary: Get all barangay
+   *     parameters:
+   *       - name: page
+   *         description: current page to load (results is paginated)
+   *         in: query
+   *         required: false
+   *         type: uint
+   *       - name: filter
+   *         description: parameters to limit the results
+   *         in: query
+   *         required: false
+   *         type: array
+   *               
+   *     responses:
+   *       200:
+   *         description: Get top first 10 barangay
    */
   async index ({ request, transform }) {
 

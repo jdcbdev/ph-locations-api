@@ -37,8 +37,7 @@ class RegionController {
    *         in: query
    *         required: false
    *         type: array
-   *        
-   *        
+   *               
    *     responses:
    *       200:
    *         description: Get top first 10 regions
