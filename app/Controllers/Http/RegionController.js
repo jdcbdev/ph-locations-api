@@ -20,6 +20,23 @@ class RegionController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    * @param {View} ctx.view
+   * @swagger
+   * /v1/regions:
+   *   get:
+   *     tags:
+   *       - region
+   *     summary: Get all regions
+   *     parameters:
+   *       - name: name
+   *         description: Name of the user
+   *         in: query
+   *         required: false
+   *         type: string
+   *     responses:
+   *       200:
+   *         description: Send hello message
+   *         example:
+   *           message: Hello Guess
    */
   async index ({ request, transform }) {
 
