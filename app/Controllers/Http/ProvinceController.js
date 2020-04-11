@@ -5,6 +5,7 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const Province = use('App/Models/Province')
+const ProvinceRepository = use('App/Repositories/ProvinceRepository')
 
 /**
  * Resourceful controller for interacting with provinces
@@ -20,8 +21,13 @@ class ProvinceController {
    * @param {View} ctx.view
    */
   async index ({ request, transform }) {
-    const current_page = request.input('page', 1)
-    const items = await Province.query().orderBy('description', 'asc').paginate(current_page)
+
+    const page = request.input('page', 1)
+    const filter = request.input('filter')
+
+    const repo = new ProvinceRepository()
+    const items = await repo.index({ page, filter})
+    
     return transform.paginate(items, 'ProvinceTransformer')
   }
 
@@ -60,8 +66,8 @@ class ProvinceController {
    * @param {View} ctx.view
    */
   async show ({ params, transform }) {
-    const item = await Region.query().where('region_code', params.id).first()
-    return transform.item(item, 'RegionTransformer')
+    const item = await Province.query().where('region_code', params.id).first()
+    return transform.item(item, 'ProvinceTransformer')
   }
 
   /**

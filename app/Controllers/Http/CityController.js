@@ -5,6 +5,7 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const City = use('App/Models/City')
+const CityRepository = use('App/Repositories/CityRepository')
 
 /**
  * Resourceful controller for interacting with cities
@@ -21,10 +22,12 @@ class CityController {
    */
   async index ({ request, transform }) {
 
-    const current_page = request.input('page', 1)
+    const page = request.input('page', 1)
     const filter = request.input('filter')
+
+    const repo = new CityRepository()
+    const items = await repo.index({ page, filter})
     
-    const items = await City.query().orderBy('description', 'asc').paginate(current_page)
     return transform.paginate(items, 'CityTransformer')
   }
 

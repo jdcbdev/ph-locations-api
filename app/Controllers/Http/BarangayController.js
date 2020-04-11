@@ -5,6 +5,7 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const Barangay = use('App/Models/Barangay')
+const BarangayRepository = use('App/Repositories/BarangayRepository')
 
 /**
  * Resourceful controller for interacting with barangays
@@ -20,8 +21,13 @@ class BarangayController {
    * @param {View} ctx.view
    */
   async index ({ request, transform }) {
-    const current_page = request.input('page', 1)
-    const items = await Barangay.query().orderBy('description', 'asc').paginate(current_page)
+
+    const page = request.input('page', 1)
+    const filter = request.input('filter')
+
+    const repo = new BarangayRepository()
+    const items = await repo.index({ page, filter})
+
     return transform.paginate(items, 'BarangayTransformer')
   }
 
