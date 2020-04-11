@@ -32,11 +32,6 @@ class RegionController {
    *         in: query
    *         required: false
    *         type: uint
-   *       - name: filter
-   *         description: parameters to limit the results
-   *         in: query
-   *         required: false
-   *         type: array
    *               
    *     responses:
    *       200:
