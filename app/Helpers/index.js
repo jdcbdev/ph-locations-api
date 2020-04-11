@@ -33,6 +33,13 @@ function map_request_parameters(resource_name, page, filter){
     else
         order_by_field = 'region_code'
 
+    if(order_by_field == 'name')  
+        order_by_field = 'description'    
+
+    // make sure sorting direction contains only legit value
+    if(["asc", "desc"].includes(order_by_direction.toLowerCase()))
+        order_by_direction = 'asc'
+
     return {
         page,
         order_by_field,
