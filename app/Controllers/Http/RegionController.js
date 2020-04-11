@@ -6,6 +6,7 @@
 
 
 const Region = use('App/Models/Region')
+const RegionRepository = use('App/Repositories/RegionRepository')
 
 /**
  * Resourceful controller for interacting with regions
@@ -21,8 +22,13 @@ class RegionController {
    * @param {View} ctx.view
    */
   async index ({ request, transform }) {
-    const current_page = request.input('page', 1)
-    const items = await Region.query().orderBy('description', 'asc').paginate(current_page)
+
+    const page = request.input('page', 1)
+    const filter = request.input('filter')
+
+    const repo = new RegionRepository()
+    const items = await repo.index({ page, filter})
+
     return transform.paginate(items, 'RegionTransformer')
   }
 

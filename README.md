@@ -29,6 +29,27 @@ seed
 adonis seed
 ```
 
+
+## Usage
+
+
+find cities that starts with "Ba"
+```
+http://ph-locations-api.buonzz.com/v1/cities?filter[where][description][like]=Ba
+
+```
+
+list regions ordered by id descending
+```
+http://ph-locations-api.buonzz.com/v1/regions?filter[order]=region_code%20desc
+```
+
+find region which has id "15"
+```
+http://ph-locations-api.buonzz.com/v1/cities?filter[where][id][eq]=15
+
+```
+
 ## Credits
 
 * [clavearnel/philippines-region-province-citymun-brgy](https://github.com/clavearnel/philippines-region-province-citymun-brgy) for JSON data

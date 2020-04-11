@@ -20,7 +20,10 @@ class CityController {
    * @param {View} ctx.view
    */
   async index ({ request, transform }) {
+
     const current_page = request.input('page', 1)
+    const filter = request.input('filter')
+    
     const items = await City.query().orderBy('description', 'asc').paginate(current_page)
     return transform.paginate(items, 'CityTransformer')
   }
