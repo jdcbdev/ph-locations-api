@@ -28,6 +28,7 @@
     "@adonisjs/shield": "^1.0.8",
     "@radmen/adonis-lucid-soft-deletes": "^0.2.0",
     "adonis-bumblebee": "^2.1.0",
+    "adonis-swagger": "^1.2.9",
     "mysql": "^2.18.1"
   },
   "devDependencies": {},
