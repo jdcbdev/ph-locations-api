@@ -27,16 +27,21 @@ class RegionController {
    *       - region
    *     summary: Get all regions
    *     parameters:
-   *       - name: name
-   *         description: Name of the user
+   *       - name: page
+   *         description: current page to load (results is paginated)
    *         in: query
    *         required: false
-   *         type: string
+   *         type: uint
+   *       - name: filter
+   *         description: parameters to limit the results
+   *         in: query
+   *         required: false
+   *         type: array
+   *        
+   *        
    *     responses:
    *       200:
-   *         description: Send hello message
-   *         example:
-   *           message: Hello Guess
+   *         description: Get top first 10 regions
    */
   async index ({ request, transform }) {
 
