@@ -17,8 +17,14 @@ function build_api_url(request, resource){
 }
 
 function map_request_parameters(resource_name, page, filter){
+    
+    let orderby
 
-    let orderby = filter.order.split(" ")   
+    if(filter != undefined && filter.order != undefined)
+        orderby = filter.order.split(" ")   
+    else
+        orderby = ["name", 'asc']
+
     let order_by_field = orderby[0]
     let order_by_direction = orderby[1]
 
