@@ -44,11 +44,6 @@ list regions ordered by id descending
 http://ph-locations-api.buonzz.com/v1/regions?filter[order]=region_code%20desc
 ```
 
-find region which has id "15"
-```
-http://ph-locations-api.buonzz.com/v1/cities?filter[where][id][eq]=15
-
-```
 
 ## Credits
 
