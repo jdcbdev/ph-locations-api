@@ -5,8 +5,13 @@ const Env = use('Env')
 function build_api_url(request, resource){
     let output = ''
 
-    output += request.protocol() + '://'
-    output += request.hostname()
+    //force https if not in local env
+    if(Env.get('NODE_ENV') == 'development')
+        output += request.protocol() + '://'
+    else
+        output += 'https://'
+
+        output += request.hostname()
 
     if(Env.get('NODE_ENV') == 'development')
         output += ':'+ Env.get('PORT', 3333)
