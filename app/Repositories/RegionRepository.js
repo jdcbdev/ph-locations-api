@@ -9,10 +9,12 @@ class RegionRepository {
 
         let p = map_request_parameters('region', params.page, params.filter)
 
-        console.log(p)
+        const query = Region.query().orderBy(p.order_by_field, p.order_by_direction)
 
-        const items = await Region.query()
-                .orderBy(p.order_by_field, p.order_by_direction).paginate(p.page)
+        if(params.filter.where != undefined)
+            query.where('description', 'LIKE',  params.filter.where.description.like +'%')
+
+        const items = await query.paginate(p.page)
         return items
     } 
 }
