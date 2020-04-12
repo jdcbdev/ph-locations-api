@@ -54,7 +54,7 @@ list cities from Manila
 https://ph-locations-api.buonzz.com/v1/cities?filter[where][province_code]=1339
 ```
 
-list barangays from 
+list barangays from City Of Manila
 ```
 https://ph-locations-api.buonzz.com/v1/barangays?filter[where][city_code]=133903
 ```
