@@ -82,7 +82,7 @@ class ProvinceController {
    * @param {View} ctx.view
    */
   async show ({ params, transform }) {
-    const item = await Province.query().where('region_code', params.id).first()
+    const item = await Province.query().where('province_code', params.id).first()
     return transform.item(item, 'ProvinceTransformer')
   }
 
