@@ -35,13 +35,28 @@ adonis seed
 
 find cities that starts with "Ba"
 ```
-http://ph-locations-api.buonzz.com/v1/cities?filter[where][description][like]=Ba
+https://ph-locations-api.buonzz.com/v1/cities?filter[where][description][like]=Ba
 
 ```
 
 list regions ordered by id descending
 ```
-http://ph-locations-api.buonzz.com/v1/regions?filter[order]=region_code%20desc
+https://ph-locations-api.buonzz.com/v1/regions?filter[order]=region_code%20desc
+```
+
+list provinces from National Capital Region
+```
+https://ph-locations-api.buonzz.com/v1/provinces?filter[where][region_code]=13
+```
+
+list cities from Manila
+```
+https://ph-locations-api.buonzz.com/v1/cities?filter[where][province_code]=1339
+```
+
+list barangays from 
+```
+https://ph-locations-api.buonzz.com/v1/barangays?filter[where][city_code]=133903
 ```
 
 

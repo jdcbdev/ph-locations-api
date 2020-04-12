@@ -13,7 +13,10 @@ class ProvinceRepository {
 
         if(params.filter != undefined){
             if(params.filter.where != undefined && params.filter.where.description != undefined)
-            query.where('description', 'LIKE',  params.filter.where.description.like +'%')
+                query.where('description', 'LIKE',  params.filter.where.description.like +'%')
+
+            if(params.filter.where != undefined && params.filter.where.region_code != undefined)
+                query.where('region_code',  params.filter.where.region_code)
         }
 
         const items = await query.paginate(p.page)
