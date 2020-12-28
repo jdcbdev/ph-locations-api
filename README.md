@@ -35,28 +35,28 @@ adonis seed
 
 find cities that starts with "Ba"
 ```
-https://ph-locations-api.buonzz.com/v1/cities?filter[where][description][like]=Ba
+https://damp-castle-15651.herokuapp.com/v1/cities?filter[where][description][like]=Ba
 
 ```
 
 list regions ordered by id descending
 ```
-https://ph-locations-api.buonzz.com/v1/regions?filter[order]=region_code%20desc
+https://damp-castle-15651.herokuapp.com/v1/regions?filter[order]=region_code%20desc
 ```
 
 list provinces from National Capital Region
 ```
-https://ph-locations-api.buonzz.com/v1/provinces?filter[where][region_code]=13
+https://damp-castle-15651.herokuapp.com/v1/provinces?filter[where][region_code]=13
 ```
 
 list cities from Manila
 ```
-https://ph-locations-api.buonzz.com/v1/cities?filter[where][province_code]=1339
+https://damp-castle-15651.herokuapp.com/v1/cities?filter[where][province_code]=1339
 ```
 
 list barangays from City Of Manila
 ```
-https://ph-locations-api.buonzz.com/v1/barangays?filter[where][city_code]=133903
+https://damp-castle-15651.herokuapp.com/v1/barangays?filter[where][city_code]=133903
 ```
 
 
