@@ -26,7 +26,7 @@ class BarangayRepository {
 
         }
 
-        const items = await query.paginate(p.page)
+        const items = await query.paginate(p.page, p.limit)
         return items
     } 
 }

@@ -13,10 +13,10 @@ class RegionRepository {
 
         if(params.filter != undefined){
             if(params.filter.where != undefined && params.filter.where.description != undefined)
-            query.where('description', 'LIKE',  params.filter.where.description.like +'%')
+                query.where('description', 'LIKE',  params.filter.where.description.like +'%')
         }
 
-        const items = await query.paginate(p.page)
+        const items = await query.paginate(p.page, p.limit)
         return items
     } 
 }

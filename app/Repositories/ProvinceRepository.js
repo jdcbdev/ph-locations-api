@@ -19,7 +19,7 @@ class ProvinceRepository {
                 query.where('region_code',  params.filter.where.region_code)
         }
 
-        const items = await query.paginate(p.page)
+        const items = await query.paginate(p.page, p.limit)
         return items
     } 
 }

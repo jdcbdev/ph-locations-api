@@ -55,7 +55,7 @@ function map_request_parameters(resource_name, page, filter){
         page,
         order_by_field,
         order_by_direction,
-        limit: 10
+        limit: 1000
     }
 }
 
