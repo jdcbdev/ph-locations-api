@@ -29,6 +29,10 @@ seed
 adonis seed
 ```
 
+run it
+```
+adonis serve --dev
+```
 
 ## Usage
 

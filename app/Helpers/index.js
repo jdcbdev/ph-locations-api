@@ -11,7 +11,10 @@ function build_api_url(request, resource){
     else
         output += 'https://'
 
+    if(Env.get('NODE_ENV') == 'development')
         output += request.hostname()
+    else
+        output += 'ph-locations-api.buonzz.com'
 
     if(Env.get('NODE_ENV') == 'development')
         output += ':'+ Env.get('PORT', 3333)
@@ -22,13 +25,14 @@ function build_api_url(request, resource){
 }
 
 function map_request_parameters(resource_name, page, filter){
-    
+
     let orderby
 
     if(filter != undefined && filter.order != undefined)
-        orderby = filter.order.split(" ")   
+        orderby = filter.order.split(" ")
     else
         orderby = ["name", 'asc']
+
 
     let order_by_field = orderby[0]
     let order_by_direction = orderby[1]
@@ -41,11 +45,11 @@ function map_request_parameters(resource_name, page, filter){
         order_by_field = 'province_code'
     else if(order_by_field == 'id' && resource_name == 'brgy_code')
         order_by_field = 'brgy_code'
-    else
+    else if(order_by_field == null || order_by_field == undefined)
         order_by_field = 'region_code'
 
-    if(order_by_field == 'name')  
-        order_by_field = 'description'    
+    if(order_by_field == 'name')
+        order_by_field = 'description'
 
     // make sure sorting direction contains only legit value
     if(["asc", "desc"].includes(order_by_direction.toLowerCase()))
