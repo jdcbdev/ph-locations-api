@@ -34,6 +34,16 @@ run it
 adonis serve --dev
 ```
 
+## Deployment
+
+connect to VM
+
+```
+ssh root@104.248.148.198
+cd /home/ph-locations-api
+
+```
+
 ## Usage
 
 
