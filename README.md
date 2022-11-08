@@ -34,43 +34,33 @@ run it
 adonis serve --dev
 ```
 
-## Deployment
-
-connect to VM
-
-```
-ssh root@104.248.148.198
-cd /home/ph-locations-api
-
-```
-
 ## Usage
 
 
 find cities that starts with "Ba"
 ```
-https://damp-castle-15651.herokuapp.com/v1/cities?filter[where][description][like]=Ba
+https://app/v1/cities?filter[where][description][like]=Ba
 
 ```
 
 list regions ordered by id descending
 ```
-https://damp-castle-15651.herokuapp.com/v1/regions?filter[order]=region_code%20desc
+https://app/v1/regions?filter[order]=region_code%20desc
 ```
 
 list provinces from National Capital Region
 ```
-https://damp-castle-15651.herokuapp.com/v1/provinces?filter[where][region_code]=13
+https://app/v1/provinces?filter[where][region_code]=13
 ```
 
 list cities from Manila
 ```
-https://damp-castle-15651.herokuapp.com/v1/cities?filter[where][province_code]=1339
+https://app/v1/cities?filter[where][province_code]=1339
 ```
 
 list barangays from City Of Manila
 ```
-https://damp-castle-15651.herokuapp.com/v1/barangays?filter[where][city_code]=133903
+https://app/v1/barangays?filter[where][city_code]=133903
 ```
 
 
